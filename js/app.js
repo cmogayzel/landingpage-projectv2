@@ -77,6 +77,34 @@ document.addEventListener('scroll', function activateSection() {
 });
 
 // Scroll to anchor ID using scrollTO event
+const links = document.querySelectorAll(".menu__link");
+console.log(links);
+for (const link of links) {
+    link.addEventListener("click", function clickHandler(a) {
+        a.preventDefault();
+        const href = document.querySelector(link.getAttribute("href"));
+        console.log(href);
+        href.scrollIntoView({ behavior: "smooth" });
+    });
+}
+
+window.onscroll = function() { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+}
+
+//Event Listener for button click - uses the topFunction to scroll to top
+topBtn.addEventListener('click', topFunction());
+
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 
 /**
  * End Main Functions
