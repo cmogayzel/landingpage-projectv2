@@ -77,13 +77,13 @@ document.addEventListener('scroll', function activateSection() {
 });
 
 // Scroll to anchor ID using scrollTO event
-const links = document.querySelectorAll(".menu__link");
-console.log(links);
-for (const link of links) {
+const webLinks = document.querySelectorAll(".menu__link");
+console.log(webLinks);
+for (const link of webLinks) {
     link.addEventListener("click", function clickHandler(a) {
         a.preventDefault();
-        const href = document.querySelector(link.getAttribute("href"));
-        console.log(href);
+        const getHref = document.querySelector(link.getAttribute("href"));
+        console.log(getHref);
         href.scrollIntoView({ behavior: "smooth" });
     });
 }
@@ -92,16 +92,15 @@ window.onscroll = function() { scrollFunction() };
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
+        buttonTop.style.display = "block";
+
     }
 }
 
 //Event Listener for button click - uses the topFunction to scroll to top
-topBtn.addEventListener('click', topFunction());
+buttonTop.addEventListener('click', returnToStart());
 
-function topFunction() {
+function returnToStart() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
