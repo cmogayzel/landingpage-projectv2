@@ -47,7 +47,8 @@ function isInViewport(element) {
  * 
  */
 
-// build the nav
+// build the Navigation Bar Menu looks for the sections and creates unordered 
+// list for the menu.
 function createHTMLNav() {
     for (let item of sections) {
         let section = document.createElement("li");
